@@ -134,23 +134,16 @@ export default function ProjectDetail({ params }: Props) {
   
   return (
     <>
-      <section className="relative min-h-[40vh]">
-        {/* Hero Image */}
-        <div className="absolute inset-0 z-0">
-          <div className="relative h-full w-full">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              priority
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-stone-900/20" />
-          </div>
-        </div>
+      <section className="relative py-20 overflow-hidden bg-stone-800">
+        <div className="absolute inset-0 bg-cover bg-center opacity-40"
+          style={{
+            backgroundImage: "url('/images/darktopo.jpg')",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-900/90 via-stone-800/80 to-stone-800/80" />
         
         {/* Content */}
-        <div className="container relative z-10 mx-auto px-4 py-20 md:py-24">
+        <div className="container mx-auto px-4 relative z-10">
           <Link
             href="/projects"
             className="inline-flex items-center text-stone-200 hover:text-white mb-6 transition-colors"
