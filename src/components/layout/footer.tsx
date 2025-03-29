@@ -28,14 +28,14 @@ export function Footer() {
             <div className="flex space-x-4">
               <a 
                 href="#" 
-                className="text-stone-500 hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-100"
+                className="text-stone-500 hover:text-stone-800 dark:text-stone-400 dark:hover:text-[#eaccb4]"
                 aria-label="Facebook"
               >
                 <FaFacebook className="h-5 w-5" />
               </a>
               <a 
                 href="#" 
-                className="text-stone-500 hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-100"
+                className="text-stone-500 hover:text-stone-800 dark:text-stone-400 dark:hover:text-[#eaccb4]"
                 aria-label="Instagram"
               >
                 <FaInstagram className="h-5 w-5" />
@@ -45,7 +45,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold text-stone-800 dark:text-stone-100 mb-4">
+            <h3 className="text-lg font-bold text-stone-800 dark:text-[#eaccb4] mb-4">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -59,7 +59,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-stone-600 hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-100"
+                    className="text-stone-600 hover:text-stone-800 dark:text-stone-400 dark:hover:text-[#eaccb4]"
                   >
                     {link.label}
                   </Link>
@@ -70,7 +70,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-bold text-stone-800 dark:text-stone-100 mb-4">
+            <h3 className="text-lg font-bold text-stone-800 dark:text-[#eaccb4] mb-4">
               Our Services
             </h3>
             <ul className="space-y-2">
@@ -84,7 +84,7 @@ export function Footer() {
                 <li key={service.href}>
                   <Link
                     href={service.href}
-                    className="text-stone-600 hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-100"
+                    className="text-stone-600 hover:text-stone-800 dark:text-stone-400 dark:hover:text-[#eaccb4]"
                   >
                     {service.label}
                   </Link>
@@ -95,7 +95,7 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-bold text-stone-800 dark:text-stone-100 mb-4">
+            <h3 className="text-lg font-bold text-stone-800 dark:text-[#eaccb4] mb-4">
               Contact Us
             </h3>
             <address className="not-italic">

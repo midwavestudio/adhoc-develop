@@ -126,3 +126,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Modern scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #eaccb4;
+  border-radius: 20px;
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #eaccb4 transparent;
+}

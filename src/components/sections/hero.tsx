@@ -2,9 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   const [isMounted, setIsMounted] = useState(false);
@@ -16,7 +14,7 @@ export function Hero() {
   if (!isMounted) return null;
 
   return (
-    <section className="relative h-[90vh] min-h-[700px] w-full overflow-hidden">
+    <section className="relative h-[100vh] w-full overflow-hidden -mt-20">
       {/* Background Image with blur effect */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0 before:content-[''] before:absolute before:inset-0 before:backdrop-blur-[2px]" 
@@ -39,7 +37,7 @@ export function Hero() {
       />
       
       {/* Content Container */}
-      <div className="container relative z-30 mx-auto px-4 h-full flex flex-col justify-center">
+      <div className="container relative z-30 mx-auto px-4 h-full flex flex-col justify-center pt-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -47,22 +45,22 @@ export function Hero() {
           className="max-w-4xl"
         >
           <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6">
-            <span className="text-stone-300">Natural Terrain</span> Development For Your Land
+            <span className="text-[#eaccb4]">Natural Terrain</span> Development For Your Land
           </h1>
           <div className="w-24 h-1 bg-white mb-6"></div>
-          <p className="text-xl md:text-2xl text-stone-200 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-[#eaccb4] mb-8 max-w-3xl mx-auto">
             We specialize in terrain development that preserves and accentuates the natural beauty of the land while providing functional solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/services"
-              className="bg-[#B17457] text-white hover:bg-[#95614A] font-medium text-lg px-8 py-4 rounded-lg"
+              className="bg-[#eaccb4] text-stone-800 hover:bg-[#d8b99e] font-medium text-lg px-8 py-4 rounded-lg"
             >
               Explore Our Services
             </Link>
             <Link 
               href="/contact"
-              className="bg-transparent border border-white text-white hover:bg-white/10 font-medium text-lg px-8 py-4 rounded-lg"
+              className="bg-transparent border border-[#eaccb4] text-[#eaccb4] hover:bg-[#eaccb4]/10 font-medium text-lg px-8 py-4 rounded-lg"
             >
               Contact Us
             </Link>

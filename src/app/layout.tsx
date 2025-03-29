@@ -24,19 +24,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark">
       <body
-        className={`${cairo.variable} font-sans antialiased min-h-screen flex flex-col bg-stone-50 dark:bg-stone-950 text-stone-950 dark:text-stone-50`}
+        className={`${cairo.variable} font-sans antialiased min-h-screen flex flex-col bg-stone-950 text-stone-50`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          forcedTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <AuthProvider>
             <Navbar />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow pt-20">{children}</main>
             <Footer />
           </AuthProvider>
         </ThemeProvider>

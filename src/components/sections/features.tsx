@@ -8,7 +8,8 @@ import {
   Hammer,
   Wind, 
   LandPlot, 
-  MapPin
+  MapPin,
+  MountainSnow
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -27,6 +28,11 @@ const features = [
     icon: Wind,
     title: "Wind & Climate Conscious",
     description: "Designing with natural elements in mind, including wind patterns and local climate conditions.",
+  },
+  {
+    icon: MountainSnow,
+    title: "Rugged Site Development",
+    description: "Transforming challenging, uneven, or remote terrains into functional, beautiful landscapes by stabilizing slopes, managing rocky outcrops, and preserving the site's natural rugged beauty.",
   },
   {
     icon: LandPlot,
@@ -74,15 +80,15 @@ export function Features() {
   };
 
   return (
-    <section className="py-16 md:py-20 bg-gradient-to-b from-stone-50 to-stone-100 dark:from-stone-900 dark:to-stone-950 relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-stone-950 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <span className="inline-block text-[#B17457] font-bold tracking-wide uppercase text-sm mb-2">What We Offer</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-800 dark:text-stone-100 mb-4 text-center">
+        <div className="text-center mb-10">
+          <span className="inline-block text-[#eaccb4] font-bold tracking-wide uppercase text-sm mb-2">What We Offer</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 text-center">
             Our Approach to Terrain Development
           </h2>
-          <div className="w-24 h-1 bg-[#B17457] mx-auto mb-6"></div>
-          <p className="text-lg text-stone-600 dark:text-stone-400 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-[#eaccb4] mx-auto mb-4"></div>
+          <p className="text-base md:text-lg text-stone-300 max-w-2xl mx-auto">
             We offer comprehensive natural terrain development services focused on creating harmonious, functional, and beautiful landscapes.
           </p>
         </div>
@@ -92,27 +98,27 @@ export function Features() {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
         >
           {features.map((feature, index) => (
             <motion.div 
               key={index} 
               variants={itemVariants}
-              className={`${index === 1 || index === 4 ? "md:mt-12" : ""}`}
+              className="flex"
             >
-              <Card className="h-[350px] bg-white/80 backdrop-blur-sm dark:bg-stone-800/80 border-0 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#B17457] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+              <Card className="h-[350px] bg-[#eaccb4] backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                 
                 <CardHeader>
-                  <div className="bg-[#f9f4f3] dark:bg-stone-900 rounded-lg w-14 h-14 flex items-center justify-center mb-4 shadow-md group-hover:shadow-lg transition-all transform group-hover:-translate-y-1">
-                    <feature.icon className="w-7 h-7 text-[#B17457] dark:text-[#B17457]" />
+                  <div className="bg-stone-950/10 rounded-lg w-14 h-14 flex items-center justify-center mb-4 shadow-md group-hover:shadow-lg transition-all transform group-hover:-translate-y-1">
+                    <feature.icon className="w-7 h-7 text-stone-950" />
                   </div>
-                  <CardTitle className="text-xl text-stone-800 dark:text-stone-100 group-hover:text-[#B17457] dark:group-hover:text-[#B17457] transition-colors">
+                  <CardTitle className="text-xl text-stone-950 group-hover:text-stone-800 transition-colors">
                     {feature.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-stone-600 dark:text-stone-400 text-base">
+                <CardContent className="pt-2">
+                  <CardDescription className="text-stone-800 text-base">
                     {feature.description}
                   </CardDescription>
                 </CardContent>
