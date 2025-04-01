@@ -26,7 +26,7 @@ export default function ContactPage() {
             <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
             <p className="text-xl text-stone-200 max-w-3xl mx-auto">
               Have questions about our natural terrain development services? 
-              We'd love to hear from you. Fill out the form below or contact us directly.
+              We&apos;d love to hear from you. Fill out the form below or contact us directly.
             </p>
           </div>
         </div>
@@ -40,8 +40,8 @@ export default function ContactPage() {
                 Get In Touch
               </h2>
               <p className="text-stone-600 dark:text-stone-400 mb-8">
-                Whether you're ready to start a project or just have questions about our services, 
-                we're here to help. Send us a message and we'll get back to you as soon as possible.
+                Whether you&apos;re ready to start a project or just have questions about our services, 
+                we&apos;re here to help. Send us a message and we&apos;ll get back to you as soon as possible.
               </p>
               
               <div className="space-y-6">

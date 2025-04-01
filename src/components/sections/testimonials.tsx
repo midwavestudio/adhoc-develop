@@ -70,7 +70,7 @@ export function Testimonials() {
                 <Card className="border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 shadow-md">
                   <CardContent className="pt-6">
                     <blockquote className="text-lg text-stone-700 dark:text-stone-300 italic mb-4">
-                      "{testimonial.quote}"
+                      &quot;{testimonial.quote}&quot;
                     </blockquote>
                     <div className="flex items-center mt-4">
                       <div className="h-10 w-10 rounded-full bg-stone-200 dark:bg-stone-700 flex items-center justify-center mr-3">

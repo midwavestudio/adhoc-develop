@@ -177,7 +177,7 @@ export default function ProjectsPage() {
             Have a Project in Mind?
           </h2>
           <p className="text-lg text-stone-300 mb-8 max-w-2xl mx-auto">
-            We'd love to discuss how we can help create a natural terrain development solution for your property.
+            We&apos;d love to discuss how we can help create a natural terrain development solution for your property.
           </p>
           <Button asChild size="lg">
             <Link href="/contact" className="bg-[#B17457] hover:bg-[#95614A] text-white">

@@ -89,7 +89,7 @@ export function ContactForm() {
             Thank You!
           </h3>
           <p className="text-stone-600 dark:text-stone-400 mb-6">
-            Your message has been sent successfully. We'll get back to you as soon as possible.
+            Your message has been sent successfully. We&apos;ll get back to you as soon as possible.
           </p>
           <Button
             type="button"
@@ -140,7 +140,7 @@ export function ContactForm() {
                     <Input placeholder="Your phone number" type="tel" {...field} />
                   </FormControl>
                   <FormDescription>
-                    We'll never share your phone number with anyone else.
+                    We&apos;ll never share your phone number with anyone else.
                   </FormDescription>
                   <FormMessage />
                 </FormItem>

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Mountain, Hammer, Wind, LandPlot, MapPin, Workflow } from "lucide-react";
+import { ChevronRight, Mountain, Hammer, LandPlot, MapPin, Workflow } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Our Services | Adhoc Develop",

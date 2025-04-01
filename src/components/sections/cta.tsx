@@ -32,7 +32,7 @@ export function CTA() {
       
       {/* Content */}
       <div className="container relative z-10 mx-auto px-4 text-center">
-        <span className="inline-block text-stone-300 font-semibold tracking-wide uppercase text-sm mb-4">Let's Work Together</span>
+        <span className="inline-block text-stone-300 font-semibold tracking-wide uppercase text-sm mb-4">Let&apos;s Work Together</span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-3xl mx-auto">
           Ready to Transform Your Land into a Natural Masterpiece?
         </h2>
