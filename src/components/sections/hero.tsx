@@ -51,7 +51,7 @@ export function Hero() {
           <p className="text-xl md:text-2xl text-[#eaccb4] mb-8 max-w-3xl mx-auto">
             We specialize in terrain development that preserves and accentuates the natural beauty of the land while providing functional solutions.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-start">
             <Link 
               href="/services"
               className="bg-[#eaccb4] text-stone-800 hover:bg-[#d8b99e] font-medium text-lg px-8 py-4 rounded-lg"
