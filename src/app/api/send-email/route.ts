@@ -3,14 +3,25 @@ import nodemailer from 'nodemailer';
 
 // Create reusable transporter object using SMTP transport
 const createTransporter = () => {
-  console.log('Creating transporter with user:', process.env.EMAIL_USER?.substring(0, 5) + '***');
+  // Get environment variables
+  const EMAIL_USER = process.env.EMAIL_USER;
+  const EMAIL_APP_PASSWORD = process.env.EMAIL_APP_PASSWORD;
+  
+  console.log('Creating transporter with user:', EMAIL_USER?.substring(0, 5) + '***');
   // Note: We're not logging the password for security reasons
   
+  if (!EMAIL_USER || !EMAIL_APP_PASSWORD) {
+    throw new Error('Email configuration is incomplete. Missing EMAIL_USER or EMAIL_APP_PASSWORD environment variables.');
+  }
+  
+  // Use explicit SMTP configuration instead of 'gmail' service
   return nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // true for 465, false for other ports
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_APP_PASSWORD, // This should be an app password, not your regular password
+      user: EMAIL_USER,
+      pass: EMAIL_APP_PASSWORD, // This should be an app password, not your regular password
     },
   });
 };
@@ -32,8 +43,12 @@ export async function POST(request: Request) {
       );
     }
 
+    // Get environment variables directly
+    const EMAIL_USER = process.env.EMAIL_USER;
+    const EMAIL_APP_PASSWORD = process.env.EMAIL_APP_PASSWORD;
+
     // Check if environment variables are set
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_APP_PASSWORD) {
+    if (!EMAIL_USER || !EMAIL_APP_PASSWORD) {
       console.error('Missing email environment variables');
       return NextResponse.json(
         { error: 'Server email configuration is incomplete' },
@@ -46,7 +61,7 @@ export async function POST(request: Request) {
 
     // Set up email data
     const mailOptions = {
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
+      from: `"${name}" <${EMAIL_USER}>`,
       to: 'adhocgib@gmail.com', // Updated recipient email
       replyTo: email,
       subject: `New contact form submission from ${name}`,

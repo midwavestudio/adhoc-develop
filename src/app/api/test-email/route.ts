@@ -3,25 +3,31 @@ import nodemailer from 'nodemailer';
 
 export async function GET() {
   try {
+    // Get environment variables directly
+    const EMAIL_USER = process.env.EMAIL_USER;
+    const EMAIL_APP_PASSWORD = process.env.EMAIL_APP_PASSWORD;
+    
     // Log the environment variables (partially masked for security)
-    console.log('Email user:', process.env.EMAIL_USER ? process.env.EMAIL_USER.substring(0, 3) + '***' + process.env.EMAIL_USER.substring(process.env.EMAIL_USER.indexOf('@')) : 'not set');
-    console.log('Email password exists:', !!process.env.EMAIL_APP_PASSWORD);
-    console.log('Email password length:', process.env.EMAIL_APP_PASSWORD?.length || 0);
+    console.log('Email user:', EMAIL_USER ? EMAIL_USER.substring(0, 3) + '***' + EMAIL_USER.substring(EMAIL_USER.indexOf('@')) : 'not set');
+    console.log('Email password exists:', !!EMAIL_APP_PASSWORD);
+    console.log('Email password length:', EMAIL_APP_PASSWORD?.length || 0);
 
     // Check if environment variables are set
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_APP_PASSWORD) {
+    if (!EMAIL_USER || !EMAIL_APP_PASSWORD) {
       return NextResponse.json(
         { error: 'Missing email environment variables' },
         { status: 500 }
       );
     }
 
-    // Create a test transporter
+    // Create a test transporter with explicit SMTP configuration
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true, // true for 465, false for other ports
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_APP_PASSWORD,
+        user: EMAIL_USER,
+        pass: EMAIL_APP_PASSWORD,
       },
       debug: true, // Enable debug output
       logger: true // Log information about the transport mechanism
@@ -33,7 +39,7 @@ export async function GET() {
 
     // Send a test email
     const info = await transporter.sendMail({
-      from: `"Test Email" <${process.env.EMAIL_USER}>`,
+      from: `"Test Email" <${EMAIL_USER}>`,
       to: 'adhocgib@gmail.com',
       subject: 'Test Email from Next.js App',
       text: 'This is a test email to verify that nodemailer is working correctly.',
