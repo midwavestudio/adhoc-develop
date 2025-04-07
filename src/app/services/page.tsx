@@ -106,9 +106,9 @@ export default function ServicesPage() {
   return (
     <>
       <section className="relative py-20 overflow-hidden bg-stone-800">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40"
+        <div className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: "url('/images/darktopo.jpg')",
+            backgroundImage: "url('/images/stone3.png')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-stone-900/90 via-stone-800/80 to-stone-800/80" />
