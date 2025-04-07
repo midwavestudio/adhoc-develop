@@ -3,6 +3,9 @@ import nodemailer from 'nodemailer';
 
 // Create reusable transporter object using SMTP transport
 const createTransporter = () => {
+  console.log('Creating transporter with user:', process.env.EMAIL_USER?.substring(0, 5) + '***');
+  // Note: We're not logging the password for security reasons
+  
   return nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -14,14 +17,27 @@ const createTransporter = () => {
 
 export async function POST(request: Request) {
   try {
+    console.log('Processing email send request');
     const data = await request.json();
     const { name, email, phone, message } = data;
 
+    console.log('Form data received:', { name, email });
+
     // Validate required fields
     if (!name || !email || !message) {
+      console.log('Missing required fields');
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
+      );
+    }
+
+    // Check if environment variables are set
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_APP_PASSWORD) {
+      console.error('Missing email environment variables');
+      return NextResponse.json(
+        { error: 'Server email configuration is incomplete' },
+        { status: 500 }
       );
     }
 
@@ -54,6 +70,8 @@ Message: ${message}
       `,
     };
 
+    console.log('Attempting to send email to:', mailOptions.to);
+
     // Send email
     const info = await transporter.sendMail(mailOptions);
     console.log('Email sent:', info.messageId);
@@ -63,7 +81,7 @@ Message: ${message}
   } catch (error) {
     console.error('Error sending email:', error);
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { error: 'Failed to send email: ' + (error instanceof Error ? error.message : String(error)) },
       { status: 500 }
     );
   }

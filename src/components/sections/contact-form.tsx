@@ -68,6 +68,7 @@ export function ContactForm() {
       const data = await response.json();
       
       if (!response.ok) {
+        console.error('Server returned error:', data.error || 'Unknown error');
         throw new Error(data.error || 'Failed to send email');
       }
       
@@ -75,7 +76,7 @@ export function ContactForm() {
       setIsSubmitted(true);
     } catch (error) {
       console.error('Error sending email:', error);
-      setError('Failed to send your message. Please try again or contact us directly.');
+      setError(error instanceof Error ? error.message : 'Failed to send your message. Please try again or contact us directly.');
     } finally {
       setIsSubmitting(false);
       form.reset();
