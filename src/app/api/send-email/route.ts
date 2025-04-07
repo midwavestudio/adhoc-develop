@@ -1,68 +1,65 @@
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
+
+// Create reusable transporter object using SMTP transport
+const createTransporter = () => {
+  return nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_APP_PASSWORD, // This should be an app password, not your regular password
+    },
+  });
+};
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const { name, email, phone, message, recipient } = data;
+    const { name, email, phone, message } = data;
 
     // Validate required fields
-    if (!name || !email || !message || !recipient) {
+    if (!name || !email || !message) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
-    // In a real implementation, you would use a service like Nodemailer, SendGrid, Resend, etc.
-    // For this example, we'll log the data and simulate a successful response
-    
-    console.log('Email data:', {
-      to: recipient,
-      from: email,
+    // Create transporter
+    const transporter = createTransporter();
+
+    // Set up email data
+    const mailOptions = {
+      from: `"${name}" <${process.env.EMAIL_USER}>`,
+      to: 'adhocgib@gmail.com', // Updated recipient email
+      replyTo: email,
       subject: `New contact form submission from ${name}`,
       text: `
 Name: ${name}
 Email: ${email}
-Phone: ${phone}
-Message: ${message}
-      `,
-    });
-
-    // For a real implementation, uncomment and configure one of these services:
-    
-    // Example for using Nodemailer (would require installing the nodemailer package)
-    /*
-    const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_SERVER_HOST,
-      port: process.env.EMAIL_SERVER_PORT,
-      auth: {
-        user: process.env.EMAIL_SERVER_USER,
-        pass: process.env.EMAIL_SERVER_PASSWORD,
-      },
-      secure: true,
-    });
-
-    await transporter.sendMail({
-      from: process.env.EMAIL_FROM,
-      to: recipient,
-      subject: `New contact form submission from ${name}`,
-      text: `
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
+Phone: ${phone || 'Not provided'}
 Message: ${message}
       `,
       html: `
-<p><strong>Name:</strong> ${name}</p>
-<p><strong>Email:</strong> ${email}</p>
-<p><strong>Phone:</strong> ${phone}</p>
-<p><strong>Message:</strong> ${message}</p>
+<div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px;">
+  <h2 style="color: #333;">New Contact Form Submission</h2>
+  <p><strong>Name:</strong> ${name}</p>
+  <p><strong>Email:</strong> ${email}</p>
+  <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+  <h3 style="margin-top: 20px;">Message:</h3>
+  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 4px;">
+    ${message.replace(/\n/g, '<br/>')}
+  </div>
+</div>
       `,
-    });
-    */
-    
+    };
+
+    // Send email
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent:', info.messageId);
+
     // Return success response
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, messageId: info.messageId });
   } catch (error) {
     console.error('Error sending email:', error);
     return NextResponse.json(

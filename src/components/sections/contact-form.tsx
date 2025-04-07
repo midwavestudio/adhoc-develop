@@ -34,6 +34,7 @@ const formSchema = z.object({
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -47,9 +48,10 @@ export function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
+    setError(null);
     
     try {
-      // Send form data to email
+      // Send form data to our API route
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
@@ -60,18 +62,20 @@ export function ContactForm() {
           email: values.email,
           phone: values.phone || 'Not provided',
           message: values.message,
-          recipient: 'adhocgib@gmail.com',
         }),
       });
       
+      const data = await response.json();
+      
       if (!response.ok) {
-        throw new Error('Failed to send email');
+        throw new Error(data.error || 'Failed to send email');
       }
       
+      console.log('Email sent successfully:', data);
       setIsSubmitted(true);
     } catch (error) {
       console.error('Error sending email:', error);
-      // You could add error handling UI here
+      setError('Failed to send your message. Please try again or contact us directly.');
     } finally {
       setIsSubmitting(false);
       form.reset();
@@ -102,6 +106,12 @@ export function ContactForm() {
       ) : (
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" suppressHydrationWarning>
+            {error && (
+              <div className="p-3 bg-red-50 text-red-600 rounded-md">
+                {error}
+              </div>
+            )}
+            
             <FormField
               control={form.control}
               name="name"

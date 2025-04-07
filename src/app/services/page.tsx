@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Mountain, Hammer, LandPlot, MapPin, Workflow } from "lucide-react";
+import { ChevronRight, Mountain, Hammer, LandPlot, MapPin, Workflow, Shovel } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Our Services | Adhoc Develop",
@@ -24,6 +24,21 @@ const services = [
       "Native vegetation preservation",
     ],
     content: "Our land development services focus on transforming properties while maintaining their natural character. We begin with comprehensive site analysis to understand the unique features of your land. This includes studying the topography, soil composition, existing vegetation, and natural water patterns. Our approach minimizes disruption to the natural environment while enhancing the functionality and beauty of the space. We prioritize solutions that work with the land rather than against it, creating developments that feel as though they've always been part of the landscape.",
+  },
+  {
+    id: "earthscaping",
+    title: "Earthscaping",
+    description: "Artful shaping and contouring of soil and terrain to create harmonious, sustainable landscapes.",
+    icon: Shovel,
+    image: "/images/stone3.png",
+    features: [
+      "Custom earth berms and mounds",
+      "Soil sculpting and artistic landforms",
+      "Natural water retention features",
+      "Sustainable erosion control",
+      "Integration with existing terrain",
+    ],
+    content: "Our earthscaping services involve the artistic and functional reshaping of terrain to create distinctive, naturalistic landscapes. We sculpt the earth to form gentle berms, undulating contours, and strategic depressions that direct water flow and create visual interest. Unlike conventional landscaping, earthscaping works with larger volumes of soil to create dramatic yet natural-looking features. Our approach emphasizes sustainability by improving drainage, reducing erosion, and creating microclimates that benefit plant life. Each earthscaping project is unique, designed to enhance the inherent character of your land while solving practical challenges.",
   },
   {
     id: "terrain-design",
@@ -202,9 +217,10 @@ export default function ServicesPage() {
         <div 
           className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `url('/images/topo.jpg')`,
-            backgroundSize: '800px',
-            backgroundRepeat: 'repeat',
+            backgroundImage: `url('/images/stone3.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
           }}
         />
         
@@ -216,7 +232,7 @@ export default function ServicesPage() {
             Contact our team today to discuss your vision and discover how we can help bring it to life while respecting and enhancing the natural landscape.
           </p>
           <Button asChild size="lg">
-            <Link href="/contact" className="bg-[#B17457] hover:bg-[#95614A] text-white">
+            <Link href="/contact" className="bg-[#eaccb4] text-stone-800 hover:bg-[#d8b99e]">
               Contact Us Today
             </Link>
           </Button>

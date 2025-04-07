@@ -180,7 +180,7 @@ export default function ProjectsPage() {
             We&apos;d love to discuss how we can help create a natural terrain development solution for your property.
           </p>
           <Button asChild size="lg">
-            <Link href="/contact" className="bg-[#B17457] hover:bg-[#95614A] text-white">
+            <Link href="/contact" className="bg-[#eaccb4] text-stone-800 hover:bg-[#d8b99e]">
               Contact Us Today
             </Link>
           </Button>

@@ -44,11 +44,11 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6">
-            <span className="text-[#eaccb4]">Natural Terrain</span> Development For Your Land
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-[#eaccb4] mb-6">
+            Natural Terrain Development For Your Land
           </h1>
           <div className="w-24 h-1 bg-white mb-6"></div>
-          <p className="text-xl md:text-2xl text-[#eaccb4] mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-[#eaccb4] mb-8 max-w-3xl">
             We specialize in terrain development that preserves and accentuates the natural beauty of the land while providing functional solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-start">

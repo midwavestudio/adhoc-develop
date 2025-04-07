@@ -44,7 +44,7 @@ export function CTA() {
           <Button 
             asChild
             size="lg" 
-            className="bg-[#B17457] text-white hover:bg-[#95614A] font-medium text-lg px-10 py-4"
+            className="bg-[#eaccb4] text-stone-800 hover:bg-[#d8b99e] font-medium text-lg px-10 py-4"
           >
             <Link href="/contact">
               Contact Us Today
