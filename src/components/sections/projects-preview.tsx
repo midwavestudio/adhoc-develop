@@ -1,10 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useInView } from "react-intersection-observer";
-import { motion, useAnimation } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -33,54 +30,22 @@ const projects = [
 ];
 
 export function ProjectsPreview() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
-
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-stone-900">
+    <section className="py-12 md:py-16 bg-stone-950 relative overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-800 dark:text-stone-100 mb-4">
-              Featured Projects
-            </h2>
-            <p className="text-lg text-stone-600 dark:text-stone-400 max-w-2xl">
-              Explore some of our recent terrain development projects, showcasing our approach to natural landscape design.
-            </p>
-          </div>
+        <div className="text-center mb-10">
+          <span className="inline-block text-[#eaccb4] font-bold tracking-wide uppercase text-sm mb-2">Featured Projects</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            Our Recent Work
+          </h2>
+          <div className="w-24 h-1 bg-[#eaccb4] mx-auto mb-4"></div>
+          <p className="text-base md:text-lg text-stone-300 max-w-2xl mx-auto mb-8">
+            Explore our portfolio of terrain development projects that showcase our commitment to natural design.
+          </p>
           <Button 
             asChild
             variant="outline" 
-            className="mt-6 md:mt-0 self-start md:self-auto"
+            className="bg-transparent border border-[#eaccb4] text-[#eaccb4] hover:bg-[#eaccb4]/10"
           >
             <Link href="/projects" className="flex items-center gap-2">
               View all projects
@@ -89,16 +54,10 @@ export function ProjectsPreview() {
           </Button>
         </div>
 
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={controls}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {projects.map((project) => (
-            <motion.div key={project.id} variants={itemVariants}>
-              <Link href={`/projects/${project.id}`} className="group block overflow-hidden rounded-lg">
+            <div key={project.id} className="group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-lg overflow-hidden bg-stone-900/60 backdrop-blur-sm">
+              <Link href={`/projects/${project.id}`} className="block overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
                   <div className="absolute inset-0 bg-stone-900/20 group-hover:bg-stone-900/40 transition-colors z-10" />
                   <div className="w-full h-full relative">
@@ -107,27 +66,27 @@ export function ProjectsPreview() {
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <div className="absolute top-4 left-4 z-20">
-                    <span className="inline-block bg-stone-100/90 text-stone-800 px-3 py-1 text-sm font-medium rounded">
+                    <span className="inline-block bg-[#eaccb4]/90 text-stone-800 px-3 py-1 text-sm font-medium rounded">
                       {project.category}
                     </span>
                   </div>
                 </div>
-                <div className="p-4 bg-stone-50 dark:bg-stone-800">
-                  <h3 className="text-xl font-bold text-stone-800 dark:text-stone-100 mb-2 group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-colors">
+                <div className="p-4">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#eaccb4] transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-stone-600 dark:text-stone-400">
+                  <p className="text-stone-300">
                     {project.description}
                   </p>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

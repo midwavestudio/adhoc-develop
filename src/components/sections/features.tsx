@@ -1,8 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import { motion, useAnimation } from "framer-motion";
 import { 
   Mountain, 
   Hammer,
@@ -47,38 +44,6 @@ const features = [
 ];
 
 export function Features() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
-
   return (
     <section className="py-12 md:py-16 bg-stone-950 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
@@ -93,19 +58,9 @@ export function Features() {
           </p>
         </div>
 
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={controls}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature, index) => (
-            <motion.div 
-              key={index} 
-              variants={itemVariants}
-              className="flex"
-            >
+            <div key={index} className="flex">
               <Card className="h-[350px] bg-[#eaccb4] backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                 
@@ -123,9 +78,9 @@ export function Features() {
                   </CardDescription>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

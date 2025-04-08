@@ -6,29 +6,17 @@ import { ArrowRight } from "lucide-react";
 
 export function CTA() {
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden">
-      {/* Background Image with blur effect */}
+    <section className="relative py-20 md:py-28 overflow-hidden bg-stone-900">
+      {/* Simplified background approach */}
       <div 
-        className="absolute inset-0 bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:backdrop-blur-[2px]" 
+        className="absolute inset-0 bg-cover bg-center opacity-20" 
         style={{ 
           backgroundImage: "url('/images/marcus-cramer-TPxtkbRD6zM-unsplash.jpg')",
         }}
-      >
-        {/* Modern blur overlay */}
-        <div className="absolute inset-0 backdrop-blur-[6px] bg-stone-950/30"></div>
-      </div>
-      
-      {/* Gradient Overlay with texture */}
-      <div 
-        className="absolute inset-0 bg-stone-900/60" 
-        style={{
-          background: `
-            linear-gradient(to right, rgba(12, 10, 9, 0.7), rgba(41, 37, 36, 0.6))
-          `,
-        }}
       />
       
-      {/* Remove Decorative elements completely */}
+      {/* Simple gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-stone-950/90 to-stone-900/80" />
       
       {/* Content */}
       <div className="container relative z-10 mx-auto px-4 text-center">
