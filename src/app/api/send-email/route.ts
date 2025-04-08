@@ -8,10 +8,33 @@ const createTransporter = () => {
   const EMAIL_APP_PASSWORD = process.env.EMAIL_APP_PASSWORD;
   
   console.log('Creating transporter with user:', EMAIL_USER?.substring(0, 5) + '***');
-  // Note: We're not logging the password for security reasons
+  console.log('Password length (should be 16):', EMAIL_APP_PASSWORD?.length || 0);
   
   if (!EMAIL_USER || !EMAIL_APP_PASSWORD) {
     throw new Error('Email configuration is incomplete. Missing EMAIL_USER or EMAIL_APP_PASSWORD environment variables.');
+  }
+  
+  if (EMAIL_APP_PASSWORD.length !== 16) {
+    console.warn('Gmail App Password should be exactly 16 characters. The current password length is ' + EMAIL_APP_PASSWORD.length);
+  }
+  
+  if (EMAIL_APP_PASSWORD.includes(' ')) {
+    console.error('Gmail App Password contains spaces. Please remove all spaces.');
+    // Automatically remove spaces in case they were accidentally included
+    const cleanPassword = EMAIL_APP_PASSWORD.replace(/\s+/g, '');
+    console.log('Cleaned password length:', cleanPassword.length);
+    
+    // Use the cleaned password
+    return nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: EMAIL_USER,
+        pass: cleanPassword,
+      },
+      debug: true, // Enable debugging to trace auth issues
+    });
   }
   
   // Use explicit SMTP configuration instead of 'gmail' service
@@ -21,8 +44,9 @@ const createTransporter = () => {
     secure: true, // true for 465, false for other ports
     auth: {
       user: EMAIL_USER,
-      pass: EMAIL_APP_PASSWORD, // This should be an app password, not your regular password
+      pass: EMAIL_APP_PASSWORD,
     },
+    debug: true, // Enable debugging to trace auth issues
   });
 };
 
@@ -56,13 +80,27 @@ export async function POST(request: Request) {
       );
     }
 
+    // Verify password format
+    if (EMAIL_APP_PASSWORD.length !== 16 || EMAIL_APP_PASSWORD.includes(' ')) {
+      console.warn('App password format warning - Length:', EMAIL_APP_PASSWORD.length, 'Contains spaces:', EMAIL_APP_PASSWORD.includes(' '));
+    }
+
     // Create transporter
     const transporter = createTransporter();
+    
+    // Verify the connection configuration
+    try {
+      const verifyResult = await transporter.verify();
+      console.log('SMTP connection verified:', verifyResult);
+    } catch (verifyError) {
+      console.error('SMTP verification failed:', verifyError);
+      // Continue anyway, as some providers block verify but allow sending
+    }
 
     // Set up email data
     const mailOptions = {
       from: `"${name}" <${EMAIL_USER}>`,
-      to: 'adhocgib@gmail.com', // Updated recipient email
+      to: EMAIL_USER, // Send to the same Gmail account
       replyTo: email,
       subject: `New contact form submission from ${name}`,
       text: `
@@ -95,8 +133,24 @@ Message: ${message}
     return NextResponse.json({ success: true, messageId: info.messageId });
   } catch (error) {
     console.error('Error sending email:', error);
+    
+    // Process common Gmail SMTP errors
+    let errorMessage = 'Failed to send email';
+    if (error instanceof Error) {
+      errorMessage += ': ' + error.message;
+      
+      // Add specific advice for common Gmail authentication errors
+      if (error.message.includes('535-5.7.8') || error.message.includes('Username and Password not accepted')) {
+        errorMessage += '. This is likely a Gmail authentication issue. Please ensure 2-Step Verification is enabled on your Google account and you\'re using a valid App Password.';
+      } else if (error.message.includes('SMTP connection failed')) {
+        errorMessage += '. SMTP connection to Gmail failed. Please check if your internet connection is stable.';
+      }
+    } else {
+      errorMessage += ': ' + String(error);
+    }
+    
     return NextResponse.json(
-      { error: 'Failed to send email: ' + (error instanceof Error ? error.message : String(error)) },
+      { error: errorMessage },
       { status: 500 }
     );
   }
