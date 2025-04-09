@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Mountain, Hammer, LandPlot, MapPin, Workflow, Shovel } from "lucide-react";
+import { ChevronRight, Mountain, Hammer, LandPlot, MapPin, Workflow, Shovel, MountainSnow, Wind } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Our Services | Adhoc Develop",
@@ -52,8 +52,9 @@ const services = [
       "Terrain stabilization techniques",
       "Viewpoint optimization",
       "Microclimate creation",
+      "Wind and climate conscious planning",
     ],
-    content: "Our terrain design services focus on enhancing the natural contours and features of your land to create beautiful, functional spaces. We carefully shape the terrain to improve drainage, create visual interest, and establish distinct areas while maintaining a natural appearance. Our designers understand how subtle changes in elevation can dramatically affect how a space feels and functions. We use computer modeling and hand sketching to explore different terrain scenarios before implementation, ensuring the final result achieves your goals while honoring the land's natural character.",
+    content: "Our terrain design services focus on enhancing the natural contours and features of your land to create beautiful, functional spaces. We carefully shape the terrain to improve drainage, create visual interest, and establish distinct areas while maintaining a natural appearance. Our designers understand how subtle changes in elevation can dramatically affect how a space feels and functions. We use computer modeling and hand sketching to explore different terrain scenarios before implementation, ensuring the final result achieves your goals while honoring the land's natural character. A key component of our approach is designing with natural elements in mind, including wind patterns and local climate conditions. By analyzing prevailing winds, sun exposure, and seasonal weather patterns, we create terrain features that provide natural shelter, enhance comfort, and work with the environment rather than against it.",
   },
   {
     id: "terrain-modification",
@@ -71,9 +72,24 @@ const services = [
     content: "Our terrain modification services transform challenging landscapes into usable, beautiful spaces. Using specialized equipment and techniques, we can reshape the land to create flat areas, gentle slopes, berms, and other features that serve both practical and aesthetic purposes. Unlike conventional grading that often strips away character, our approach preserves and enhances the site's natural elements. We carefully consider drainage patterns, soil stability, and visual impact at every stage, ensuring that modifications blend seamlessly with the surrounding environment while solving practical problems.",
   },
   {
+    id: "rugged-site-development",
+    title: "Rugged Site Development",
+    description: "Transforming challenging, uneven, or remote terrains into functional, beautiful landscapes.",
+    icon: MountainSnow,
+    image: "/images/service-terrain-mod.jpg",
+    features: [
+      "Slope stabilization techniques",
+      "Rock outcrop integration",
+      "Remote site logistics",
+      "Natural drainage management",
+      "Erosion control systems",
+    ],
+    content: "Our rugged site development services specialize in transforming the most challenging terrains into functional, beautiful landscapes. We have the expertise and equipment to handle steep slopes, rocky outcrops, and remote locations that many developers avoid. Rather than fighting against difficult terrain, we embrace these challenges as opportunities to create unique, character-rich environments. Our approach preserves the site's natural rugged beauty while stabilizing slopes, managing drainage, and creating usable spaces. We implement careful erosion control systems and work with existing rock formations, integrating them as features rather than obstacles. Whether your property is on a mountainside, in a rocky area, or in a remote location, we can develop it in a way that maintains its inherent character while adding functionality and accessibility.",
+  },
+  {
     id: "natural-landscapes",
-    title: "Natural Landscapes",
-    description: "Designing landscapes that blend seamlessly with the surrounding environment and require minimal maintenance.",
+    title: "Natural Integration",
+    description: "Ensuring all development seamlessly blends with the existing landscape features and natural surroundings.",
     icon: LandPlot,
     image: "/images/service-landscape.jpg",
     features: [
@@ -82,8 +98,9 @@ const services = [
       "Wildlife-friendly design",
       "Low-maintenance ecosystems",
       "Seasonal interest planning",
+      "Seamless transitions with surroundings",
     ],
-    content: "Our natural landscape services focus on creating beautiful, sustainable outdoor spaces using native and adapted plants that thrive in local conditions. We design landscapes that evolve naturally over time, requiring minimal maintenance while providing maximum beauty. Our approach incorporates a deep understanding of plant communities, succession planning, and ecological relationships. We consider factors such as seasonal changes, wildlife habitat, and long-term growth patterns to create landscapes that become more beautiful and integrated with each passing year.",
+    content: "Our natural integration services focus on creating beautiful, sustainable outdoor spaces that blend seamlessly with the existing landscape features. We design using native and adapted plants that thrive in local conditions, requiring minimal maintenance while providing maximum beauty. Our approach incorporates a deep understanding of plant communities, succession planning, and ecological relationships. We consider factors such as seasonal changes, wildlife habitat, and long-term growth patterns to create landscapes that become more beautiful and integrated with each passing year. Every element we introduce is carefully designed to complement and enhance the natural surroundings, ensuring that human interventions appear as though they have always been part of the landscape.",
   },
   {
     id: "site-planning",
@@ -97,8 +114,9 @@ const services = [
       "Access and circulation planning",
       "View corridor preservation",
       "Building placement optimization",
+      "Climate-responsive design",
     ],
-    content: "Our site planning services provide a comprehensive approach to organizing your property for optimal function, beauty, and environmental harmony. We carefully consider how different elements relate to each other and to the natural features of the land. This includes building placement, access points, gathering areas, and private spaces. We analyze sun patterns, prevailing winds, and natural drainage to create a site plan that works with these elements rather than against them. The result is a property that flows naturally, with each area transitioning seamlessly to the next.",
+    content: "Our site planning services provide a comprehensive approach to organizing your property for optimal function, beauty, and environmental harmony. We carefully consider how different elements relate to each other and to the natural features of the land. This includes building placement, access points, gathering areas, and private spaces. We analyze sun patterns, prevailing winds, and natural drainage to create a site plan that works with these elements rather than against them. Our climate-responsive approach ensures that your site is designed to maximize comfort throughout the seasons while minimizing environmental impact. The result is a property that flows naturally, with each area transitioning seamlessly to the next, enhancing both the user experience and the ecological integrity of the site.",
   }
 ];
 
