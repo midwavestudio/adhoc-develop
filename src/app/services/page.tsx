@@ -2,20 +2,21 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Mountain, Hammer, LandPlot, MapPin, Workflow, Shovel, MountainSnow, Wind } from "lucide-react";
+import { ChevronRight, Mountain, Hammer, LandPlot, MapPin, Shovel, MountainSnow } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Our Services | Adhoc Develop",
   description: "Explore Adhoc Develop's natural terrain development services including land development, terrain design, and terrain modification.",
 };
 
+// Keeping only the 6 services that match the homepage features
 const services = [
   {
     id: "land-development",
     title: "Land Development",
     description: "Transforming raw land into beautiful, functional landscapes that respect the natural terrain.",
     icon: Mountain,
-    image: "/images/service-land.jpg",
+    image: "/images/treesgreen.jpg",
     features: [
       "Topographical analysis and planning",
       "Soil assessment and enhancement",
@@ -24,6 +25,21 @@ const services = [
       "Native vegetation preservation",
     ],
     content: "Our land development services focus on transforming properties while maintaining their natural character. We begin with comprehensive site analysis to understand the unique features of your land. This includes studying the topography, soil composition, existing vegetation, and natural water patterns. Our approach minimizes disruption to the natural environment while enhancing the functionality and beauty of the space. We prioritize solutions that work with the land rather than against it, creating developments that feel as though they've always been part of the landscape.",
+  },
+  {
+    id: "terrain-modification",
+    title: "Terrain Modification",
+    description: "Reshaping and sculpting the landscape to create natural, functional spaces that enhance the property's features.",
+    icon: Hammer,
+    image: "/images/38i5rkrr.jpg",
+    features: [
+      "Strategic earthwork and grading",
+      "Natural stone integration",
+      "Elevated and lowered spaces",
+      "Erosion prevention techniques",
+      "Specialized equipment operation",
+    ],
+    content: "Our terrain modification services transform challenging landscapes into usable, beautiful spaces. Using specialized equipment and techniques, we can reshape the land to create flat areas, gentle slopes, berms, and other features that serve both practical and aesthetic purposes. Unlike conventional grading that often strips away character, our approach preserves and enhances the site's natural elements. We carefully consider drainage patterns, soil stability, and visual impact at every stage, ensuring that modifications blend seamlessly with the surrounding environment while solving practical problems.",
   },
   {
     id: "earthscaping",
@@ -41,42 +57,11 @@ const services = [
     content: "Our earthscaping services involve the artistic and functional reshaping of terrain to create distinctive, naturalistic landscapes. We sculpt the earth to form gentle berms, undulating contours, and strategic depressions that direct water flow and create visual interest. Unlike conventional landscaping, earthscaping works with larger volumes of soil to create dramatic yet natural-looking features. Our approach emphasizes sustainability by improving drainage, reducing erosion, and creating microclimates that benefit plant life. Each earthscaping project is unique, designed to enhance the inherent character of your land while solving practical challenges.",
   },
   {
-    id: "terrain-design",
-    title: "Terrain Design",
-    description: "Creating natural-looking terrain modifications that enhance the property's inherent features.",
-    icon: MapPin,
-    image: "/images/service-terrain.jpg",
-    features: [
-      "Contour shaping and enhancement",
-      "Natural feature accentuation",
-      "Terrain stabilization techniques",
-      "Viewpoint optimization",
-      "Microclimate creation",
-      "Wind and climate conscious planning",
-    ],
-    content: "Our terrain design services focus on enhancing the natural contours and features of your land to create beautiful, functional spaces. We carefully shape the terrain to improve drainage, create visual interest, and establish distinct areas while maintaining a natural appearance. Our designers understand how subtle changes in elevation can dramatically affect how a space feels and functions. We use computer modeling and hand sketching to explore different terrain scenarios before implementation, ensuring the final result achieves your goals while honoring the land's natural character. A key component of our approach is designing with natural elements in mind, including wind patterns and local climate conditions. By analyzing prevailing winds, sun exposure, and seasonal weather patterns, we create terrain features that provide natural shelter, enhance comfort, and work with the environment rather than against it.",
-  },
-  {
-    id: "terrain-modification",
-    title: "Terrain Modification",
-    description: "Reshaping and sculpting the landscape to create natural, functional spaces that enhance the property's features.",
-    icon: Hammer,
-    image: "/images/service-terrain-mod.jpg",
-    features: [
-      "Strategic earthwork and grading",
-      "Natural stone integration",
-      "Elevated and lowered spaces",
-      "Erosion prevention techniques",
-      "Specialized equipment operation",
-    ],
-    content: "Our terrain modification services transform challenging landscapes into usable, beautiful spaces. Using specialized equipment and techniques, we can reshape the land to create flat areas, gentle slopes, berms, and other features that serve both practical and aesthetic purposes. Unlike conventional grading that often strips away character, our approach preserves and enhances the site's natural elements. We carefully consider drainage patterns, soil stability, and visual impact at every stage, ensuring that modifications blend seamlessly with the surrounding environment while solving practical problems.",
-  },
-  {
     id: "rugged-site-development",
     title: "Rugged Site Development",
     description: "Transforming challenging, uneven, or remote terrains into functional, beautiful landscapes.",
     icon: MountainSnow,
-    image: "/images/service-terrain-mod.jpg",
+    image: "/images/Sagebrush-landscape-in-Craters-of-the-Moon-National-Preserve.jpg",
     features: [
       "Slope stabilization techniques",
       "Rock outcrop integration",
@@ -91,7 +76,7 @@ const services = [
     title: "Natural Integration",
     description: "Ensuring all development seamlessly blends with the existing landscape features and natural surroundings.",
     icon: LandPlot,
-    image: "/images/service-landscape.jpg",
+    image: "/images/rachel-davis-SZbSyPX3Lsk-unsplash.jpg",
     features: [
       "Native plant selection and placement",
       "Natural habitat creation",
@@ -106,8 +91,8 @@ const services = [
     id: "site-planning",
     title: "Site Planning",
     description: "Strategic positioning of elements to maximize natural beauty, functionality, and environmental sustainability.",
-    icon: Workflow,
-    image: "/images/service-site.jpg",
+    icon: MapPin,
+    image: "/images/3457u43hy.jpg",
     features: [
       "Comprehensive site analysis",
       "Functional zoning",
@@ -123,20 +108,21 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative py-20 overflow-hidden bg-stone-800">
-        <div className="absolute inset-0 bg-cover bg-center opacity-30"
+      <section className="relative py-20 overflow-hidden bg-stone-950">
+        <div className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
-            backgroundImage: "url('/images/stone3.png')",
+            backgroundImage: "url('/images/marcus-cramer-TPxtkbRD6zM-unsplash.jpg')",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-900/90 via-stone-800/80 to-stone-800/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-950/80 via-stone-950/70 to-stone-900/70" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center">
+            <span className="inline-block text-[#eaccb4] font-bold tracking-wide uppercase text-sm mb-2">Professional Services</span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Our Services
             </h1>
-            <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-[#eaccb4] mx-auto mb-6"></div>
             <p className="text-xl text-stone-200 max-w-3xl mx-auto">
               We provide comprehensive natural terrain development services to transform your land while respecting its inherent character.
             </p>
@@ -146,31 +132,7 @@ export default function ServicesPage() {
       
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {services.map((service) => (
-              <Link 
-                key={service.id} 
-                href={`/services#${service.id}`}
-                className="group bg-white dark:bg-stone-800 rounded-lg shadow-sm border border-stone-200 dark:border-stone-700 p-6 transition-all hover:shadow-md"
-              >
-                <div className="flex items-center mb-4">
-                  <div className="bg-stone-100 dark:bg-stone-900 rounded-full p-3 mr-4">
-                    <service.icon className="h-6 w-6 text-stone-600 dark:text-stone-400" />
-                  </div>
-                  <h3 className="text-xl font-bold text-stone-800 dark:text-stone-100 group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-colors">
-                    {service.title}
-                  </h3>
-                </div>
-                <p className="text-stone-600 dark:text-stone-400 mb-4">
-                  {service.description}
-                </p>
-                <div className="flex items-center text-stone-600 dark:text-stone-400 group-hover:text-stone-800 dark:group-hover:text-stone-200 transition-colors">
-                  <span>Learn more</span>
-                  <ChevronRight className="h-4 w-4 ml-1" />
-                </div>
-              </Link>
-            ))}
-          </div>
+          {/* Removed the grid service cards section */}
           
           {services.map((service, index) => (
             <div 
@@ -182,14 +144,14 @@ export default function ServicesPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div className={index % 2 === 0 ? 'order-2 lg:order-1' : 'order-2'}>
                     <div className="mb-4 flex items-center">
-                      <div className="bg-stone-100 dark:bg-stone-800 rounded-full p-3 mr-4">
-                        <service.icon className="h-6 w-6 text-stone-600 dark:text-stone-400" />
+                      <div className="bg-[#eaccb4] rounded-full p-3 mr-4">
+                        <service.icon className="h-6 w-6 text-stone-800" />
                       </div>
                       <h2 className="text-2xl md:text-3xl font-bold text-stone-800 dark:text-stone-100">
                         {service.title}
                       </h2>
                     </div>
-                    <p className="text-stone-600 dark:text-stone-400 mb-6">
+                    <p className="text-stone-600 dark:text-stone-300 mb-6">
                       {service.content}
                     </p>
                     
@@ -199,27 +161,29 @@ export default function ServicesPage() {
                     <ul className="space-y-2 mb-8">
                       {service.features.map((feature, i) => (
                         <li key={i} className="flex items-start">
-                          <div className="text-stone-500 dark:text-stone-400 mr-2 mt-1">
+                          <div className="text-[#eaccb4] mr-2 mt-1">
                             <ChevronRight className="h-4 w-4" />
                           </div>
-                          <span className="text-stone-600 dark:text-stone-400">{feature}</span>
+                          <span className="text-stone-600 dark:text-stone-300">{feature}</span>
                         </li>
                       ))}
                     </ul>
                     
-                    <Button asChild className="bg-[#B17457] hover:bg-[#95614A] text-white border-none">
+                    <Button asChild className="bg-[#eaccb4] hover:bg-[#d8b99e] text-stone-800 border-none">
                       <Link href="/contact">
                         Request a Consultation
                       </Link>
                     </Button>
                   </div>
                   <div className={index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'}>
-                    <div className="relative h-[350px] rounded-lg overflow-hidden">
+                    <div className="relative h-[350px] rounded-lg overflow-hidden shadow-lg">
                       <Image 
                         src={service.image} 
-                        alt={service.title} 
+                        alt={service.title}
                         fill
-                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority={index < 2}
+                        className="object-cover transition-transform duration-500 hover:scale-105"
                       />
                     </div>
                   </div>
@@ -230,12 +194,12 @@ export default function ServicesPage() {
         </div>
       </section>
       
-      <section className="relative py-12 md:py-16 bg-stone-900 overflow-hidden">
+      <section className="relative py-16 md:py-20 bg-stone-950 overflow-hidden">
         {/* Topographic pattern background */}
         <div 
           className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `url('/images/stone3.png')`,
+            backgroundImage: `url('/images/darktopo.jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -243,14 +207,15 @@ export default function ServicesPage() {
         />
         
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-stone-100 mb-6 max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 max-w-3xl mx-auto">
             Ready to Start Your Natural Terrain Development Project?
           </h2>
-          <p className="text-lg text-stone-300 mb-8 max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-[#eaccb4] mx-auto mb-6"></div>
+          <p className="text-lg text-stone-200 mb-8 max-w-2xl mx-auto">
             Contact our team today to discuss your vision and discover how we can help bring it to life while respecting and enhancing the natural landscape.
           </p>
-          <Button asChild size="lg">
-            <Link href="/contact" className="bg-[#eaccb4] text-stone-800 hover:bg-[#d8b99e]">
+          <Button asChild size="lg" className="bg-[#eaccb4] text-stone-800 hover:bg-[#d8b99e] font-medium px-8 py-6">
+            <Link href="/contact">
               Contact Us Today
             </Link>
           </Button>

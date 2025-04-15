@@ -7,6 +7,23 @@ const nextConfig = {
       allowedOrigins: ['localhost:3000', 'adhoc-develop.vercel.app']
     }
   },
+  images: {
+    domains: ['images.unsplash.com', 'images.pexels.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
   eslint: {
     ignoreDuringBuilds: true
   },
