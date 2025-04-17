@@ -132,17 +132,30 @@ export default function ServicesPage() {
       
       <section className="py-16">
         <div className="container mx-auto px-4">
-          {/* Removed the grid service cards section */}
-          
+          {/* Services list with improved spacing */}
           {services.map((service, index) => (
             <div 
               id={service.id} 
               key={service.id}
-              className={`py-12 ${index % 2 === 0 ? 'bg-white dark:bg-stone-900' : 'bg-stone-50 dark:bg-stone-950'}`}
+              className={`py-16 ${index !== 0 ? 'mt-16' : ''} ${index % 2 === 0 ? 'bg-white dark:bg-stone-900' : 'bg-stone-50 dark:bg-stone-950'} group rounded-lg overflow-hidden`}
             >
               <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  <div className={index % 2 === 0 ? 'order-2 lg:order-1' : 'order-2'}>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
+                  <div className={`${index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'} h-full flex items-center`}>
+                    <div className="relative w-full h-[400px] lg:h-[450px] rounded-lg overflow-hidden shadow-lg">
+                      <Image 
+                        src={service.image} 
+                        alt={service.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority={index < 2}
+                        className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                        quality={90}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  </div>
+                  <div className={`${index % 2 === 0 ? 'order-2 lg:order-1' : 'order-2'} flex flex-col justify-center`}>
                     <div className="mb-4 flex items-center">
                       <div className="bg-[#eaccb4] rounded-full p-3 mr-4">
                         <service.icon className="h-6 w-6 text-stone-800" />
@@ -174,18 +187,6 @@ export default function ServicesPage() {
                         Request a Consultation
                       </Link>
                     </Button>
-                  </div>
-                  <div className={index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'}>
-                    <div className="relative h-[350px] rounded-lg overflow-hidden shadow-lg">
-                      <Image 
-                        src={service.image} 
-                        alt={service.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        priority={index < 2}
-                        className="object-cover transition-transform duration-500 hover:scale-105"
-                      />
-                    </div>
                   </div>
                 </div>
               </div>
