@@ -7,10 +7,27 @@ import { useEffect, useRef, useState } from "react";
 export function Hero() {
   const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef(null);
+  const ticking = useRef(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      lastScrollY.current = window.scrollY;
+      
+      if (!ticking.current) {
+        // Use requestAnimationFrame to throttle updates and sync with browser's render cycle
+        window.requestAnimationFrame(() => {
+          // Apply a small amount of smoothing by blending previous and current scroll positions
+          setScrollY(prevScrollY => {
+            const newScrollY = lastScrollY.current;
+            // Smoothing: blend 80% of the new value with 20% of the old value
+            return prevScrollY * 0.2 + newScrollY * 0.8;
+          });
+          ticking.current = false;
+        });
+        
+        ticking.current = true;
+      }
     };
 
     // Add scroll event listener
@@ -22,18 +39,18 @@ export function Hero() {
     };
   }, []);
 
+  // Calculate a smaller parallax factor that won't be as noticeable but smoother
+  const parallaxOffset = scrollY * 0.15;
+
   return (
     <section ref={heroRef} className="relative h-[100vh] w-full overflow-hidden -mt-20">
       {/* Parallax hero background */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center"
+        className="absolute inset-0 z-0 bg-cover bg-center will-change-transform"
         style={{ 
           backgroundImage: "url('/images/treesgreen.jpg')",
-          backgroundAttachment: "fixed",
-          backgroundSize: "cover",
-          transform: `translateY(${scrollY * 0.5}px)`,
-          transition: "transform 0.05s linear",
-          willChange: "transform"
+          transform: `translate3d(0, ${parallaxOffset}px, 0)`,
+          transition: "transform 0.2s cubic-bezier(0.33, 1, 0.68, 1)",
         }}
       />
         
