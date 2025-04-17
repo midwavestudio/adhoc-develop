@@ -76,7 +76,7 @@ const services = [
     title: "Natural Integration",
     description: "Ensuring all development seamlessly blends with the existing landscape features and natural surroundings.",
     icon: LandPlot,
-    image: "/images/rachel-davis-SZbSyPX3Lsk-unsplash.jpg",
+    image: "/images/downup.jpeg",
     features: [
       "Native plant selection and placement",
       "Natural habitat creation",
