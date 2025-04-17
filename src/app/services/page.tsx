@@ -128,7 +128,7 @@ export default function ServicesPage() {
             <div 
               id={service.id} 
               key={service.id}
-              className={`py-12 ${index !== 0 ? 'mt-16' : ''} ${index % 2 === 0 ? 'bg-white dark:bg-stone-900' : 'bg-stone-50 dark:bg-stone-950'} group rounded-lg overflow-hidden`}
+              className={`py-12 ${index !== 0 ? 'mt-16' : ''} bg-white dark:bg-stone-900 group rounded-lg overflow-hidden`}
             >
               <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
