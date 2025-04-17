@@ -16,7 +16,7 @@ const services = [
     title: "Land Development",
     description: "Transforming raw land into beautiful, functional landscapes that respect the natural terrain.",
     icon: Mountain,
-    image: "/images/treesgreen.jpg",
+    image: "/images/45u6jk,utdk.jpg",
     features: [
       "Topographical analysis and planning",
       "Soil assessment and enhancement",
