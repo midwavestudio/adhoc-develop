@@ -132,8 +132,8 @@ export default function ServicesPage() {
             >
               <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                  <div className={`${index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'}`}>
-                    <div className="h-[450px] relative rounded-lg overflow-hidden shadow-lg">
+                  <div className={`${index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'} h-[450px]`}>
+                    <div className="h-full w-full relative rounded-lg overflow-hidden shadow-lg">
                       <Image 
                         src={service.image} 
                         alt={service.title}
@@ -141,6 +141,12 @@ export default function ServicesPage() {
                         sizes="(max-width: 768px) 100vw, 50vw"
                         priority={index < 2}
                         className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                        style={{ 
+                          objectFit: 'cover',
+                          objectPosition: 'center',
+                          width: '100%',
+                          height: '100%'
+                        }}
                         quality={90}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
