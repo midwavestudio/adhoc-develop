@@ -2,14 +2,39 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 export function Hero() {
+  const [scrollY, setScrollY] = useState(0);
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Clean up
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <section className="relative h-[100vh] w-full overflow-hidden -mt-20">
-      {/* Static hero background alternative as fallback */}
+    <section ref={heroRef} className="relative h-[100vh] w-full overflow-hidden -mt-20">
+      {/* Parallax hero background */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/treesgreen.jpg')" }}
+        style={{ 
+          backgroundImage: "url('/images/treesgreen.jpg')",
+          backgroundAttachment: "fixed",
+          backgroundSize: "cover",
+          transform: `translateY(${scrollY * 0.5}px)`,
+          transition: "transform 0.05s linear",
+          willChange: "transform"
+        }}
       />
         
       {/* Overlay with gradient */}
