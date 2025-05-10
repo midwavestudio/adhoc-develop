@@ -1,14 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { 
   Mountain, 
   Hammer,
-  Wind, 
   LandPlot, 
   MapPin,
-  MountainSnow
+  MountainSnow,
+  Shovel,
+  ChevronRight
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const features = [
   {
@@ -22,9 +25,9 @@ const features = [
     description: "Reshaping and sculpting the landscape to create natural, functional spaces that enhance the property's features.",
   },
   {
-    icon: Wind,
-    title: "Wind & Climate Conscious",
-    description: "Designing with natural elements in mind, including wind patterns and local climate conditions.",
+    icon: Shovel,
+    title: "Earthscaping",
+    description: "Artful shaping and contouring of soil and terrain to create harmonious, sustainable landscapes.",
   },
   {
     icon: MountainSnow,
@@ -80,6 +83,15 @@ export function Features() {
               </Card>
             </div>
           ))}
+        </div>
+        
+        <div className="mt-12 text-center">
+          <Button asChild className="bg-[#eaccb4] text-stone-800 hover:bg-[#d8b99e] px-8 py-6 text-lg inline-flex items-center w-auto">
+            <Link href="/services" className="flex items-center justify-center">
+              See All Services
+              <ChevronRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
