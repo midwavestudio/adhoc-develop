@@ -10,21 +10,21 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="relative py-20 overflow-hidden bg-stone-800">
+      <section className="relative py-20 overflow-hidden bg-[#eaccb4]">
         <div className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
-            backgroundImage: "url('/images/darktopo.jpg')",
+            backgroundImage: "url('/images/topo.jpg')",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-900/90 via-stone-800/80 to-stone-800/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-700/50 via-[#eaccb4]/70 to-[#eaccb4]/70" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-stone-800 mb-4">
               Contact Us
             </h1>
-            <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
-            <p className="text-xl text-stone-200 max-w-3xl mx-auto">
+            <div className="w-24 h-1 bg-stone-800 mx-auto mb-6"></div>
+            <p className="text-xl text-stone-700 max-w-3xl mx-auto">
               Have questions about our natural terrain development services? 
               We&apos;d love to hear from you. Fill out the form below or contact us directly.
             </p>
