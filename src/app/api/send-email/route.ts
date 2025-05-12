@@ -99,10 +99,10 @@ export async function POST(request: Request) {
 
     // Set up email data
     const mailOptions = {
-      from: `"${name}" <${EMAIL_USER}>`,
+      from: `"Adhoc Develop Contact" <${EMAIL_USER}>`,
       to: EMAIL_USER, // Send to the same Gmail account
       replyTo: email,
-      subject: `New contact form submission from ${name}`,
+      subject: `Website Inquiry from ${name}`,
       text: `
 Name: ${name}
 Email: ${email}
