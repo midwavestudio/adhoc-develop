@@ -51,19 +51,9 @@ export default function AboutPage() {
               <p className="text-lg text-stone-600 dark:text-stone-400 mb-6">
                 At Adhoc Develop, our mission is to transform landscapes while preserving and enhancing their natural beauty. We believe that development should work with nature, not against it.
               </p>
-              <p className="text-lg text-stone-600 dark:text-stone-400 mb-6">
+              <p className="text-lg text-stone-600 dark:text-stone-400">
                 Our vision is to be at the forefront of sustainable land development, creating spaces that provide functionality while maintaining the integrity of the natural terrain.
               </p>
-              <div className="grid grid-cols-2 gap-6 mt-8">
-                <div className="border border-stone-200 dark:border-stone-700 rounded-lg p-4 text-center">
-                  <h3 className="text-4xl font-bold text-[#eaccb4] mb-2">150+</h3>
-                  <p className="text-stone-600 dark:text-stone-400">Projects Completed</p>
-                </div>
-                <div className="border border-stone-200 dark:border-stone-700 rounded-lg p-4 text-center">
-                  <h3 className="text-4xl font-bold text-[#eaccb4] mb-2">15+</h3>
-                  <p className="text-stone-600 dark:text-stone-400">Years Experience</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
