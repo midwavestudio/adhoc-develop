@@ -106,10 +106,10 @@ export function Footer() {
                 Kalispell, MT 59901
               </p>
               <p className="text-stone-600 dark:text-stone-400 mb-2">
-                Phone: (555) 123-4567
+                Phone: <a href="tel:+14062501942" className="hover:text-stone-800 dark:hover:text-[#eaccb4]">(406) 250-1942</a>
               </p>
               <p className="text-stone-600 dark:text-stone-400">
-                Email: info@adhocdevelop.com
+                Email: <a href="mailto:adhocjon@gmail.com" className="hover:text-stone-800 dark:hover:text-[#eaccb4]">adhocjon@gmail.com</a>
               </p>
             </address>
           </div>
