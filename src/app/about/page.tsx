@@ -127,11 +127,14 @@ export default function AboutPage() {
           </div>
           
           <div className="max-w-4xl mx-auto relative">
-            {/* Vertical line */}
-            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-[#eaccb4]/30 z-0"></div>
+            {/* Vertical line - Only visible on larger screens */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-[#eaccb4]/30 z-0"></div>
+            
+            {/* Mobile vertical line */}
+            <div className="md:hidden absolute left-5 top-0 bottom-0 w-1 bg-[#eaccb4]/30 z-0"></div>
             
             {/* Timeline items */}
-            <div className="space-y-12 relative z-10">
+            <div className="space-y-8 md:space-y-16 relative z-10">
               {[
                 {
                   step: 1,
@@ -164,8 +167,33 @@ export default function AboutPage() {
                   description: "We ensure all work meets our quality standards and make any necessary adjustments for perfect integration."
                 }
               ].map((item, index) => (
-                <div key={index} className={`flex flex-col md:flex-row items-center md:items-start ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                  <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'} md:text-${index % 2 === 0 ? 'left' : 'right'}`}>
+                <div key={index} className="flex md:grid md:grid-cols-2 items-start relative">
+                  {/* Mobile layout and desktop left side (even items) */}
+                  <div className={`${index % 2 === 0 ? 'md:block' : 'md:hidden'} flex items-start md:pr-12 md:text-right`}>
+                    <div className="flex-shrink-0 md:hidden mr-4">
+                      <div className="bg-[#eaccb4] rounded-full h-10 w-10 flex items-center justify-center text-stone-800 font-bold shadow-sm">
+                        {item.step}
+                      </div>
+                    </div>
+                    <div className="md:ml-0 flex-1">
+                      <h3 className="text-xl font-bold text-stone-800 dark:text-[#eaccb4] mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-stone-600 dark:text-stone-400">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Center dot for desktop */}
+                  <div className="hidden md:block absolute left-1/2 top-0 transform -translate-x-1/2 z-10">
+                    <div className="bg-[#eaccb4] rounded-full h-10 w-10 flex items-center justify-center text-stone-800 font-bold shadow-sm">
+                      {item.step}
+                    </div>
+                  </div>
+                  
+                  {/* Desktop right side (odd items) */}
+                  <div className={`${index % 2 !== 0 ? 'md:block' : 'md:hidden'} hidden md:pl-12`}>
                     <h3 className="text-xl font-bold text-stone-800 dark:text-[#eaccb4] mb-2">
                       {item.title}
                     </h3>
@@ -173,14 +201,6 @@ export default function AboutPage() {
                       {item.description}
                     </p>
                   </div>
-                  
-                  <div className="flex items-center justify-center my-4 md:my-0">
-                    <div className="bg-[#eaccb4] rounded-full h-10 w-10 flex items-center justify-center text-stone-800 font-bold z-10">
-                      {item.step}
-                    </div>
-                  </div>
-                  
-                  <div className="md:w-1/2"></div>
                 </div>
               ))}
             </div>
