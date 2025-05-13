@@ -45,7 +45,7 @@ const services = [
     title: "Earthscaping",
     description: "Artful shaping and contouring of soil and terrain to create harmonious, sustainable landscapes.",
     icon: Shovel,
-    image: "/images/patio.png",
+    image: "/images/patio.PNG",
     features: [
       "Custom earth berms and mounds",
       "Soil sculpting and artistic landforms",
