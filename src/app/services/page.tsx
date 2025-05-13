@@ -109,11 +109,11 @@ export default function ServicesPage() {
             <div 
               id={service.id} 
               key={service.id}
-              className={`py-12 ${index !== 0 ? 'mt-16' : ''} bg-white dark:bg-stone-900 group rounded-lg overflow-hidden`}
+              className={`py-8 md:py-12 ${index !== 0 ? 'mt-10 md:mt-16' : ''} bg-white dark:bg-stone-900 group rounded-lg overflow-hidden`}
             >
               <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                  <div className={`${index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'} h-[450px]`}>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-start">
+                  <div className={`${index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'} h-[350px] md:h-[450px]`}>
                     <div className="h-full w-full relative rounded-lg overflow-hidden shadow-lg">
                       <Image 
                         src={service.image} 
@@ -134,7 +134,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
                   <div className={`${index % 2 === 0 ? 'order-2 lg:order-1' : 'order-2'}`}>
-                    <div className="h-[450px] flex flex-col justify-between py-6 px-1">
+                    <div className="min-h-[450px] h-auto flex flex-col justify-between py-6 px-1">
                       <div>
                         <div className="mb-4 flex items-center">
                           <div className="bg-[#eaccb4] rounded-full p-3 mr-4">
@@ -163,8 +163,8 @@ export default function ServicesPage() {
                         </ul>
                       </div>
                       
-                      <div className="mt-6">
-                        <Button asChild className="bg-[#eaccb4] hover:bg-[#d8b99e] text-stone-800 border-none inline-flex items-center">
+                      <div className="mt-6 pb-4">
+                        <Button asChild className="w-auto bg-[#eaccb4] hover:bg-[#d8b99e] text-stone-800 border-none inline-flex items-center">
                           <Link href="/contact" className="flex items-center justify-center">
                             Request a Consultation
                           </Link>
