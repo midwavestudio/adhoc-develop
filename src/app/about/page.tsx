@@ -169,7 +169,7 @@ export default function AboutPage() {
               ].map((item, index) => (
                 <div key={index} className="flex md:grid md:grid-cols-2 items-start relative">
                   {/* Mobile layout and desktop left side (even items) */}
-                  <div className={`${index % 2 === 0 ? 'md:block' : 'md:hidden'} flex items-start md:pr-12 md:text-right`}>
+                  <div className={`${index % 2 === 0 ? 'md:block' : 'md:hidden'} flex items-start md:pr-12 md:text-left`}>
                     <div className="flex-shrink-0 md:hidden mr-4">
                       <div className="bg-[#eaccb4] rounded-full h-10 w-10 flex items-center justify-center text-stone-800 font-bold shadow-sm">
                         {item.step}
@@ -193,7 +193,7 @@ export default function AboutPage() {
                   </div>
                   
                   {/* Desktop right side (odd items) */}
-                  <div className={`${index % 2 !== 0 ? 'md:block' : 'md:hidden'} hidden md:pl-12`}>
+                  <div className={`${index % 2 !== 0 ? 'md:block' : 'md:hidden'} hidden md:pl-12 md:text-left`}>
                     <h3 className="text-xl font-bold text-stone-800 dark:text-[#eaccb4] mb-2">
                       {item.title}
                     </h3>
