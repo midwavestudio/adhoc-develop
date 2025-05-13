@@ -206,9 +206,6 @@ export default function AboutPage() {
               </h2>
               <div className="w-16 h-1 bg-[#eaccb4] mb-6"></div>
               <p className="text-lg text-stone-600 dark:text-stone-400 mb-6">
-                Adhoc Develop was founded by a team of landscape architects and environmental engineers who shared a passion for natural terrain development.
-              </p>
-              <p className="text-lg text-stone-600 dark:text-stone-400 mb-6">
                 Our journey began with small residential projects, where we developed our approach of minimal intervention and natural integration. Today, we apply these same principles to projects of all sizes, from private estates to public parks and commercial developments.
               </p>
               <p className="text-lg text-stone-600 dark:text-stone-400">
