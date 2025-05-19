@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
 
-// Correct viewport export - this is the only metadata we should keep
+// Add proper viewport export
 export const viewport = {
   width: "device-width",
   initialScale: 1,
