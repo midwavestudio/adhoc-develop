@@ -5,14 +5,14 @@ import { Home } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Page Not Found | Adhoc Develop",
-  description: "The page you are looking for does not exist.",
+  description: "The page you are looking for does not exist."
 };
 
-// Use viewport export instead of placing it in metadata
+// Correct viewport export
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
+  maximumScale: 5
 };
 
 export default function NotFound() {

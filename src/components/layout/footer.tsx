@@ -100,10 +100,7 @@ export function Footer() {
             </h3>
             <address className="not-italic">
               <p className="text-stone-600 dark:text-stone-400 mb-2">
-                456 Terrain Drive
-              </p>
-              <p className="text-stone-600 dark:text-stone-400 mb-2">
-                Kalispell, MT 59901
+                Kalispell, Montana
               </p>
               <p className="text-stone-600 dark:text-stone-400 mb-2">
                 Phone: <a href="tel:+14062501942" className="hover:text-stone-800 dark:hover:text-[#eaccb4]">(406) 250-1942</a>

@@ -52,8 +52,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-medium text-stone-800 dark:text-stone-200 mb-1">Our Location</h3>
                     <p className="text-stone-600 dark:text-stone-400">
-                      456 Terrain Drive<br />
-                      Kalispell, MT 59901
+                      Kalispell, Montana
                     </p>
                   </div>
                 </div>
