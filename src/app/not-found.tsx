@@ -1,13 +1,11 @@
+'use client';
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
 
-// Add proper viewport export
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5
-};
+// Add proper viewport export - this is handled at the layout level
+// Don't need viewport export in client components
 
 export default function NotFound() {
   return (
