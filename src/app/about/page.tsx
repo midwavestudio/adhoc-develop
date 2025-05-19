@@ -12,12 +12,14 @@ export default function AboutPage() {
     <>
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden bg-[#eaccb4]">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40"
+        <div className="absolute inset-0 bg-cover bg-center opacity-[0.35] md:opacity-40"
           style={{
             backgroundImage: "url('/images/topo.jpg')",
+            backgroundSize: "cover",
+            backgroundRepeat: "repeat",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-700/50 via-[#eaccb4]/70 to-[#eaccb4]/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-700/30 via-[#eaccb4]/60 to-[#eaccb4]/70" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center">

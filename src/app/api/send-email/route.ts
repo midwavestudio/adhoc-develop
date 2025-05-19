@@ -97,10 +97,13 @@ export async function POST(request: Request) {
       // Continue anyway, as some providers block verify but allow sending
     }
 
+    // Destination email address for contact form submissions
+    const CONTACT_EMAIL = 'adhocjon@gmail.com';
+
     // Set up email data
     const mailOptions = {
       from: `"Adhoc Develop Contact" <${EMAIL_USER}>`,
-      to: EMAIL_USER, // Send to the same Gmail account
+      to: CONTACT_EMAIL, // Send to the specified contact email
       replyTo: email,
       subject: `Website Inquiry from ${name}`,
       text: `
