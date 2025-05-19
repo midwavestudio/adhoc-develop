@@ -3,17 +3,15 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
-import { SearchParamsHandler } from "@/components/search-params-handler";
 import { Suspense } from "react";
 
+// We'll now avoid using SearchParamsHandler altogether
 export default function NotFoundPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <section className="container mx-auto flex flex-col items-center justify-center py-32 px-4">
         <h1 className="text-5xl font-bold mb-4">404</h1>
         <h2 className="text-2xl mb-8">Page Not Found</h2>
-        
-        <SearchParamsHandler />
         
         <p className="text-lg text-center text-stone-400 mb-8 max-w-md">
           The page you are looking for doesn't exist or has been moved.

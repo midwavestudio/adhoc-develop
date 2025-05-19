@@ -1,14 +1,8 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Metadata } from "next";
 import { Home } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Page Not Found | Adhoc Develop",
-  description: "The page you are looking for does not exist."
-};
-
-// Correct viewport export
+// Correct viewport export - this is the only metadata we should keep
 export const viewport = {
   width: "device-width",
   initialScale: 1,
