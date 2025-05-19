@@ -22,7 +22,7 @@ interface TrackEventProps {
 
 // Get the Google Analytics Measurement ID from environment variables
 // This allows changing the ID without having to modify the code
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-X3H2FK3K3G';
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-7K39BQV5TQ';
 
 /**
  * Track a custom event in Google Analytics
