@@ -52,7 +52,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-medium text-stone-800 dark:text-stone-200 mb-1">Our Location</h3>
                     <p className="text-stone-600 dark:text-stone-400">
-                      Kalispell, Montana
+                      Mountain View, California
                     </p>
                   </div>
                 </div>
@@ -63,8 +63,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-stone-800 dark:text-stone-200 mb-1">Email Address</h3>
-                    <a href="mailto:adhocjon@gmail.com" className="text-stone-600 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200">
-                      adhocjon@gmail.com
+                    <a href="mailto:contact@example.com" className="text-stone-600 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200">
+                      contact@example.com
                     </a>
                   </div>
                 </div>
@@ -75,8 +75,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-stone-800 dark:text-stone-200 mb-1">Phone Number</h3>
-                    <a href="tel:+14062501942" className="text-stone-600 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200">
-                      (406) 250-1942
+                    <a href="tel:+15551234567" className="text-stone-600 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200">
+                      (555) 123-4567
                     </a>
                   </div>
                 </div>
