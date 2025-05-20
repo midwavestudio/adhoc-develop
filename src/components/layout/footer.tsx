@@ -100,13 +100,13 @@ export function Footer() {
             </h3>
             <address className="not-italic">
               <p className="text-stone-600 dark:text-stone-400 mb-2">
-                Mountain View, California
+                1850 Lakeside Drive, Boulder, CO 80304
               </p>
               <p className="text-stone-600 dark:text-stone-400 mb-2">
-                Phone: <a href="tel:+15551234567" className="hover:text-stone-800 dark:hover:text-[#eaccb4]">(555) 123-4567</a>
+                Phone: <a href="tel:+13037528940" className="hover:text-stone-800 dark:hover:text-[#eaccb4]">(303) 752-8940</a>
               </p>
               <p className="text-stone-600 dark:text-stone-400">
-                Email: <a href="mailto:contact@example.com" className="hover:text-stone-800 dark:hover:text-[#eaccb4]">contact@example.com</a>
+                Email: <a href="mailto:sarah.mitchell@adhocdev.com" className="hover:text-stone-800 dark:hover:text-[#eaccb4]">sarah.mitchell@adhocdev.com</a>
               </p>
             </address>
           </div>

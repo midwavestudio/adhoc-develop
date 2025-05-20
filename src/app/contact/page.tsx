@@ -52,7 +52,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-medium text-stone-800 dark:text-stone-200 mb-1">Our Location</h3>
                     <p className="text-stone-600 dark:text-stone-400">
-                      Mountain View, California
+                      1850 Lakeside Drive, Boulder, CO 80304
                     </p>
                   </div>
                 </div>
@@ -63,8 +63,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-stone-800 dark:text-stone-200 mb-1">Email Address</h3>
-                    <a href="mailto:contact@example.com" className="text-stone-600 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200">
-                      contact@example.com
+                    <a href="mailto:sarah.mitchell@adhocdev.com" className="text-stone-600 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200">
+                      sarah.mitchell@adhocdev.com
                     </a>
                   </div>
                 </div>
@@ -75,8 +75,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-stone-800 dark:text-stone-200 mb-1">Phone Number</h3>
-                    <a href="tel:+15551234567" className="text-stone-600 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200">
-                      (555) 123-4567
+                    <a href="tel:+13037528940" className="text-stone-600 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200">
+                      (303) 752-8940
                     </a>
                   </div>
                 </div>
@@ -88,8 +88,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-medium text-stone-800 dark:text-stone-200 mb-1">Business Hours</h3>
                     <p className="text-stone-600 dark:text-stone-400">
-                      Monday - Friday: 9:00 AM - 5:00 PM<br />
-                      Saturday: 10:00 AM - 2:00 PM<br />
+                      Monday - Friday: 8:30 AM - 5:30 PM<br />
+                      Saturday: 9:00 AM - 1:00 PM<br />
                       Sunday: Closed
                     </p>
                   </div>

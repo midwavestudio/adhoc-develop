@@ -98,7 +98,7 @@ export async function POST(request: Request) {
     }
 
     // Destination email address for contact form submissions
-    const CONTACT_EMAIL = 'contact@example.com';
+    const CONTACT_EMAIL = 'sarah.mitchell@adhocdev.com';
 
     // Set up email data
     const mailOptions = {
