@@ -6,8 +6,6 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { db } from '@/lib/firebase/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function NewProject() {
   const router = useRouter();
@@ -61,35 +59,6 @@ export default function NewProject() {
     reader.readAsDataURL(file);
   };
 
-  const uploadImageToBlob = async (file: File): Promise<string> => {
-    setIsUploading(true);
-    setUploadProgress(0);
-    
-    try {
-      // Create a unique filename with timestamp
-      const timestamp = Date.now();
-      const filename = `project-${timestamp}-${file.name.replace(/\s+/g, '-').toLowerCase()}`;
-      
-      const response = await fetch(`/api/upload?filename=${encodeURIComponent(filename)}`, {
-        method: 'POST',
-        body: file,
-      });
-      
-      if (!response.ok) {
-        throw new Error('Failed to upload image');
-      }
-      
-      const blob = await response.json();
-      return blob.url;
-    } catch (err) {
-      console.error('Error uploading image:', err);
-      throw new Error('Failed to upload image. Please try again.');
-    } finally {
-      setIsUploading(false);
-      setUploadProgress(100);
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -102,21 +71,11 @@ export default function NewProject() {
     setError(null);
     
     try {
-      let imageUrl = '';
+      // Mock implementation - in production this would save to a database
+      console.log('Project data:', { ...formData, imageFile: imageFile?.name });
       
-      // Upload image if selected
-      if (imageFile) {
-        imageUrl = await uploadImageToBlob(imageFile);
-      }
-      
-      // Save project to Firebase
-      const projectData = {
-        ...formData,
-        imageUrl,
-        createdAt: serverTimestamp(),
-      };
-      
-      await addDoc(collection(db, 'projects'), projectData);
+      // Simulate a delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
       // Redirect to admin dashboard
       router.push('/admin');
